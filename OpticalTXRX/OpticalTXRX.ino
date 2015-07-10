@@ -8,7 +8,7 @@ void setup() {
   // put your setup code here, to run once:
   pinMode(RX, INPUT);
   pinMode(TX, OUTPUT);
-  Serial.begin(9600);
+  Serial.begin(300);
 }
 
 void loop() {
@@ -16,10 +16,9 @@ void loop() {
   int RXvalue = analogRead(RX);
   if (counter == cycles) { 
     RXmean = (RXmean + RXvalue) / 2; 
-    Serial.println(String(RXmean) + " " + String(RXvalue));
     counter = 0;
   }
-      
+  Serial.println("testing");
   if (RXvalue > RXmean + 50) {
     digitalWrite(TX, HIGH);
   }
